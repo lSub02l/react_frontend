@@ -12,7 +12,7 @@ export default function HomePage() {
     },[])
 
     const getData = async () => {
-        const {data} = await httpClient.post("/dashboard")
+        const {data} = await httpClient.get("/dashboard")
         console.log(data)
     }
 

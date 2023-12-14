@@ -65,21 +65,18 @@ export default function WithSubnavigation() {
           justify={'flex-end'}
           direction={'row'}
           spacing={6}>
-          <Button as={'a'} fontSize={'sm'} fontWeight={400} variant={'link'} href={'/login'}>
-            Sign In
-          </Button>
           <Button
             as={'a'}
             display={{ base: 'none', md: 'inline-flex' }}
             fontSize={'sm'}
             fontWeight={600}
             color={'white'}
-            bg={'pink.400'}
-            href={'/register'}
+            bg={'red.400'}
+            href={'/logout'}
             _hover={{
-              bg: 'pink.300',
+              bg: 'red.300',
             }}>
-            Sign Up
+            Logout
           </Button>
         </Stack>
       </Flex>
@@ -234,5 +231,39 @@ const MobileNavItem = ({ label, children, href }) => {
 
 const NAV_ITEMS = [
   {
-  }
+    label: 'Weather',
+    children: [
+      {
+        label: 'Countries',
+        subLabel: 'Weather in different countries',
+        children: [{
+          
+        }]
+      },
+      {
+        label: 'Cities',
+        subLabel: 'Weather in different cities',
+        href: '#',
+      },
+    ],
+  },
+  {
+    label: 'Travels',
+    children: [
+      {
+        label: 'Countries',
+        subLabel: 'Travel to your favourite countries',
+        href: '#',
+      },
+      {
+        label: 'Cities',
+        subLabel: 'Travel to your favourite cities',
+        href: '#',
+      },
+    ]
+  },
+  {
+    label: 'About',
+    href: '#',
+  },
 ]

@@ -1,4 +1,4 @@
-// src/components/LoginPage.js
+// src/components/RegisterPage.js
 import React, { useState } from 'react';
 import WithSubnavigation from '../components/Navigation'
 import httpClient from '../utils/httpClient';
@@ -14,14 +14,14 @@ import {
   useToast,
 } from '@chakra-ui/react';
 
-const LoginPage = () => {
+const RegisterPage = () => {
     const [email, setEmail] = useState('');
     const [psswd, setpsswd] = useState('');
     const toast = useToast()
     const navigation = useNavigate()
 
-    const handleLogin = async () => {
-        const {data} = await httpClient.post("/login", {email,psswd} )
+    const handleRegister = async () => {
+        const {data} = await httpClient.post("/register", {email, psswd} )
         console.log(data)
 
         toast({
@@ -31,7 +31,7 @@ const LoginPage = () => {
             isClosable: true,
         })  
         if (data['ok']) {
-            navigation("/dashboard")
+            navigation("/HomePage")
         }
     };
 
@@ -40,7 +40,7 @@ const LoginPage = () => {
         <WithSubnavigation/>
         <VStack marginTop={20} spacing={8} align="center">
         <Box p={8} borderWidth={1} borderRadius={8} boxShadow="lg" width="400px">
-            <Heading mb={4}>Login</Heading>
+            <Heading mb={4}>Register</Heading>
             <FormControl>
             <FormLabel>E-mail</FormLabel>
             <Input
@@ -62,10 +62,10 @@ const LoginPage = () => {
             <Button
             colorScheme="teal"
             mt={4}
-            onClick={handleLogin}
+            onClick={handleRegister}
             isFullWidth
             >
-            Login
+            Register
             </Button>
         </Box>
         </VStack>
@@ -73,4 +73,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default RegisterPage;
